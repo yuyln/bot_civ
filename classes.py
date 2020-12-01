@@ -61,7 +61,10 @@ async def scores(ctx):
 @bot.command(name='score')
 async def score(ctx):
 	global arquivo
-	await ctx.channel.send(f"<@!{ctx.message.author.id}> - {arquivo[f'<@!{ctx.message.author.id}>']}")
+	try:
+		await ctx.channel.send(f"<@!{ctx.message.author.id}> - {arquivo[f'<@!{ctx.message.author.id}>']}")
+	except KeyError:
+		await ctx.channel.send("Você ainda não foi registrado, peça para o admin te incluir na tabela")
 
 
 @bot.command(name='tabela_')
