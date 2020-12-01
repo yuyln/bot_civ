@@ -2,6 +2,7 @@ import discord
 import json
 from discord.ext import commands
 import datetime
+import os
 
 prefix = ">"
 bot = commands.Bot(prefix)
@@ -103,6 +104,5 @@ async def tabela_(ctx):
 
 @bot.event
 async def on_ready():
-	aux = {k: v for k, v in sorted(arquivo.items(), key=lambda x: -x[1])}
-	print(aux)
-bot.run("NzgzMDkwMjczOTczNjk4NjAw.X8Vrpg.oplXN8fJlumnrD-Nn4i6ECKznWw")
+	print("o bot ta rodando")
+bot.run(os.environ["BOT_CIV"])
